@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: [ test ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Running Az Powershell
+      uses: aksm-ms/powershell@master
+      with:
+        inlineScript: |
+          echo foo
+          echo bar
+          echo baz
+        azPSVersion: 'latest'
