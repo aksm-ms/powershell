@@ -16,5 +16,5 @@ jobs:
       uses: aksm-ms/powershell@test
       with:
         inlineScript: |
-          echo foo
+          Get-AzVm -ResourceGroupName "akshaya-test"
         azPSVersion: 'latest'
