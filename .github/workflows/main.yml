@@ -13,4 +13,5 @@ jobs:
           echo foo
           echo bar
           echo baz
+          echo foo
         azPSVersion: 'latest'
