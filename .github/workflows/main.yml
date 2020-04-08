@@ -4,7 +4,7 @@ on:
     branches: [ test ]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Login Azure powershell
       uses: aksm-ms/login@az-ps-login
