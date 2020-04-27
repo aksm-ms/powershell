@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Login Azure powershell
-      uses: aksm-ms/login@94e13dc735bd9d754c6da5dbfd61f312ab43bb37
+      uses: aksm-ms/login@az-ps-login
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-PSSession: true
