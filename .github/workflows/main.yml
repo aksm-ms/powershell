@@ -4,13 +4,16 @@ on:
     branches: [ test ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
+    - name: Login Azure powershell
+      uses: aksm-ms/login@az-ps-login
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-PSSession: true
     - name: Running Az Powershell
       uses: aksm-ms/powershell@test
       with:
         inlineScript: |
-          echo foo
-          echo bar
-          echo baz
+          Get-AzVm -ResourceGroupName "akshaya-test"
         azPSVersion: 'latest'
