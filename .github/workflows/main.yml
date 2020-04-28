@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Login Azure powershell
+    - name: Azure PS login
       uses: azure/login@releases/v2-beta
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
