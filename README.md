@@ -28,9 +28,8 @@ jobs:
         enable-AzPSSession: true
         
     - run: |
-        az webapp list --query "[?state=='Running']"
+        az webapp list --query "[?state=='Running']"  
         
-   
     - uses: azure/powershell@v1
       with:
         inlineScript: |
