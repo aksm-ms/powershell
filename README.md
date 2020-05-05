@@ -38,7 +38,10 @@ jobs:
         azPSVersion: 'latest'
 ```
 Azure PowerShell Script to be executed can be given under inlineScript as shown in the sample workflow. Az module version to be used can be chosen from the [list](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops#error-could-not-find-the-modules--with-version--if-the-module-was-recently-installed-retry-after-restarting-the-azure-pipelines-task-agent). To use the latest version, specify 'latest'.
+
 Both [Azure Login](https://github.com/Azure/login) and [Azure PowerShell](https://github.com/azure/powershell) action uses Az module.
+
+Currently, Azure PowerShell action only supports ubuntu and windows runners. Macos is not supported. 
 
 # Contributing
 
