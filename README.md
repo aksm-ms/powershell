@@ -43,6 +43,15 @@ Both [Azure Login](https://github.com/Azure/login) and [Azure PowerShell](https:
 
 Currently, Azure PowerShell action only supports ubuntu and windows runners. Macos is not supported. 
 
+#### Available versions of Az Module on runner
+
+| Environment | YAML Label | Az module versions | |
+| --------------------|---------------------|--------------------|
+| Ubuntu 18.04 | `ubuntu-latest` or `ubuntu-18.04` | [ubuntu-18.04](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md) |
+| Ubuntu 16.04 | `ubuntu-16.04` | [ubuntu-16.04](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1604-README.md) | 
+| Windows Server 2019 | `windows-latest` or `windows-2019` | [windows-2019](https://github.com/actions/virtual-environments/blob/master/images/win/Windows2019-Readme.md#az-powershell-module) |
+| Windows Server 2016 | `windows-2016` | [windows-2016](https://github.com/actions/virtual-environments/blob/master/images/win/Windows2016-Readme.md#az-powershell-module) | 
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
