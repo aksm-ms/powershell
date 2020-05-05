@@ -1,12 +1,36 @@
 # Github action for Azure PowerShell
 This repository contains Github action for Azure PowerShell to automate your github workflows using Azure PowerShell scripts.
 
+Get started today with a [free Azure account](https://azure.com/free/open-source)!
+
 The definition of this Github Action is in [action.yml](https://github.com/azure/powershell/blob/master/action.yml).
 
 ## End-to-End Sample Workflows
 
+### Dependencies on other Github Actions
 
+Login to Azure before running Azure PowerShell scripts using [Azure Login](https://github.com/Azure/login).
 
+```yaml
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure PS login sample
+      uses: azure/login@v1.1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true
+    - run: |
+        az webapp list --query "[?state=='Running']"
+    - name: Running Az Powershell
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          # add a cmd
+        azPSVersion: 'latest'
+```
 
 # Contributing
 
