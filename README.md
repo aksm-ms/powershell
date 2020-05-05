@@ -9,8 +9,11 @@ The definition of this Github Action is in [action.yml](https://github.com/azure
 
 ### Dependencies on other Github Actions
 
-Login to Azure before running Azure PowerShell scripts using [Azure Login](https://github.com/Azure/login).
+Login to Azure before running Azure PowerShell scripts using [Azure Login](https://github.com/Azure/login). Refer [Azure Login](https://github.com/Azure/login#configure-azure-credentials) action on how to configure Azure credentials.
 
+Once login is done, Azure PowerShell action will use the same session to run the script. 
+
+#### Sample workflow to run inlinescript using Azure PowerShell
 ```yaml
 on: [push]
 
@@ -22,13 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: azure/login@v1.1
+    - name: Login via Az module
+      uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true
-        
-    - run: |
-        az webapp list --query "[?state=='Running']"  
+        enable-AzPSSession: true 
         
     - uses: azure/powershell@v1
       with:
@@ -36,6 +37,8 @@ jobs:
           Get-AzVM -ResourceGroupName "ResourceGroup11"
         azPSVersion: 'latest'
 ```
+Azure PowerShell Script to be executed can be given under inlineScript as shown in the sample workflow. Az module version to be used can be chosen from the [list](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops#error-could-not-find-the-modules--with-version--if-the-module-was-recently-installed-retry-after-restarting-the-azure-pipelines-task-agent). To use the latest version, specify 'latest'.
+Both [Azure Login](https://github.com/Azure/login) and [Azure PowerShell](https://github.com/azure/powershell) action uses Az module.
 
 # Contributing
 
