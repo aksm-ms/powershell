@@ -35,7 +35,7 @@ jobs:
       with:
         inlineScript: |
           Get-AzVM -ResourceGroupName "ResourceGroup11"
-        azPSVersion: 'latest'
+        azPSVersion: '3.1.0'
 ```
 Azure PowerShell Script to be executed can be given under inlineScript as shown in the sample workflow. Az module version to be used can be chosen from the [list](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops#error-could-not-find-the-modules--with-version--if-the-module-was-recently-installed-retry-after-restarting-the-azure-pipelines-task-agent). To use the latest version, specify 'latest'.
 
@@ -55,7 +55,7 @@ You can find the list of Az module versions that can be given as azPSVersion in 
 | Windows Server 2016 | `windows-2016` | [windows-2016](https://github.com/actions/virtual-environments/blob/master/images/win/Windows2016-Readme.md#az-powershell-module)
 
 ##### Note:
-For ubuntu-18.04 and ubuntu-16.04 runners, please search for the az module in the software page to see the Az module versions.
+For ubuntu-18.04 and ubuntu-16.04 runners, please search for the az module in the software page to see the versions.
 
 # Contributing
 
