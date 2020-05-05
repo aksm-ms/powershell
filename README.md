@@ -13,22 +13,28 @@ Login to Azure before running Azure PowerShell scripts using [Azure Login](https
 
 ```yaml
 on: [push]
+
+name: AzurePowerShellSample
+
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Azure PS login sample
-      uses: azure/login@v1.1
+    
+    - uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
+        
     - run: |
         az webapp list --query "[?state=='Running']"
-    - name: Running Az Powershell
-      uses: azure/powershell@v1
+        
+   
+    - uses: azure/powershell@v1
       with:
         inlineScript: |
-          # add a cmd
+          Get-AzVM -ResourceGroupName "ResourceGroup11"
         azPSVersion: 'latest'
 ```
 
