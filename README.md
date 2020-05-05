@@ -1,3 +1,11 @@
+# Github action for Azure PowerShell
+This repository contains Github action for Azure PowerShell to automate your github workflows using Azure PowerShell scripts.
+The definition of this Github Action is in [action.yml] https://github.com/azure/powershell/blob/master/action.yml.
+
+## End-to-End Sample Workflows
+
+
+
 
 # Contributing
 
