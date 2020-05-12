@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [ static-webapp ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code.
+      uses: actions/checkout@v2 
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: test-runfrompkg
+        package:  ${{github.workspace}}/Life-on-land-master.zip
