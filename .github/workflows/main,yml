@@ -4,15 +4,19 @@ on:
     branches: [ testing-windows ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: 'Build and test job'
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest]
     steps:
     - name: Azure PS login testing
-      uses: aksm-ms/login@releases/v1
+      uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
     - name: Running Az Powershell
-      uses: aksm-ms/powershell@releases/v1
+      uses: azure/powershell@v1
       with:
         inlineScript: |
           Get-AzVm -ResourceGroupName "TESTEAVA"
