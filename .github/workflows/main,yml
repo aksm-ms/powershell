@@ -1,0 +1,12 @@
+  
+name: CI
+on:
+  push:
+    branches: [ testing-windows ]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Azure PS login testing
+      run: |
+        ls C:\Modules
