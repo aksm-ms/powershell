@@ -1,12 +1,19 @@
-  
 name: CI
 on:
   push:
-    branches: [ testing-windows ]
+    branches: [ testing-winows ]
 jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: Azure PS login testing
-      run: |
-        pwsh -c "ls C:\Modules"
+    - name: Azure PS login test
+      uses: aksm-ms/login@releases/v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true
+    - name: Running Az Powershell
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzVm -ResourceGroupName "TESTEAVA"
+        azPSVersion: 'latest'
