@@ -22,6 +22,6 @@ jobs:
     - name: Azure WebApp deploy
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: ak-linux-container
+        app-name: ak-windows-container
         images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
     
