@@ -17,8 +17,8 @@ jobs:
     - uses: azure/docker-login@v1
       with:
         login-server: aktestcontainerapp.azurecr.io
-        username: ''
-        password: ''
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: Azure WebApp deploy
       uses: Azure/webapps-deploy@v2
       with:
