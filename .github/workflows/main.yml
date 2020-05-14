@@ -11,9 +11,6 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: login to azure registry
-      run: |
-        docker login aktestcontainerapp.azurecr.io
     - uses: azure/docker-login@v1
       with:
         login-server: aktestcontainerapp.azurecr.io
