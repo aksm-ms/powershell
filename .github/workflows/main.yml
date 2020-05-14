@@ -15,9 +15,10 @@ jobs:
       run: |
         az acr login --name akTestContainerApp
         docker pull aktestcontainerapp.azurecr.io/dotnetsamplelinwebapp:latest
-    - name: Azure WebApp deploy
-      uses: Azure/webapps-deploy@v2
-      with:
-        app-name: ak-linux-container
-        images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
+        docker run --rm -d  -p 5000:5000/tcp dotnetsamplelinwebapp:latest
+#     - name: Azure WebApp deploy
+#       uses: Azure/webapps-deploy@v2
+#       with:
+#         app-name: ak-linux-container
+#         images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
     
