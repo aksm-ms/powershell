@@ -11,7 +11,7 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: login to docker
+    - name: 'login to docker'
       run: |
         az acr login --name akTestContainerApp
         docker pull aktestcontainerapp.azurecr.io/dotnetsamplelinwebapp:latest
