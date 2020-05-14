@@ -11,15 +11,10 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - uses: azure/docker-login@v1
-      with:
-        login-server: aktestcontainerapp.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-    - name: print DOCKER_CONFIG
+    - name: login to docker
       run: |
-        echo "in run"
-        echo ${{github.DOCKER_CONFIG}}
+        az acr login --name akTestContainerApp
+        docker pull aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
     - name: Azure WebApp deploy
       uses: Azure/webapps-deploy@v2
       with:
