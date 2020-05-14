@@ -16,6 +16,10 @@ jobs:
         login-server: aktestcontainerapp.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
+    - name: print DOCKER_CONFIG
+      run: |
+        echo "in run"
+        echo ${{github.DOCKER_CONFIG}}
     - name: Azure WebApp deploy
       uses: Azure/webapps-deploy@v2
       with:
