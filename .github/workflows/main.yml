@@ -7,10 +7,10 @@ jobs:
     name: 'Build job'
     runs-on: ubuntu-latest
     steps:
-#     - name: 'Azure PS login testing'
-#       uses: azure/login@v1.1
-#       with:
-#         creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: 'Azure PS login testing'
+      uses: azure/login@v1.1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: login to docker
       run: |
         az acr login --name akTestContainerApp
