@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [ azure-creds-tree ]
+    branches: [ webapp-container ]
 jobs:
   build:
     name: 'Build job'
@@ -10,8 +10,10 @@ jobs:
     - name: Azure PS login testing
       uses: azure/login@v1.1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS_TEST}}
-    - name: cmds 
-      run: |
-         az account show
-         az cloud show
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ak-windows-container
+        images: akshaya95/dotnetsamplewebapp:latest
+    
