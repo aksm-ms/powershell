@@ -13,7 +13,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: login to azure registry
       run: |
-        az acr login --name akTestContainerApp
+        docker login aktestcontainerapp.azurecr.io
     - uses: azure/docker-login@v1
       with:
         login-server: aktestcontainerapp.azurecr.io
