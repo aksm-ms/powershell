@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ azure-creds-issue ]
+jobs:
+  build:
+    name: 'Build and test job'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure PS login testing
+      uses: azure/login@v1.1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_TEST}}
+    - name: cmds 
+      run: |
+         az account show
+         az cloud show
