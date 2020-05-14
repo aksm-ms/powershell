@@ -15,5 +15,5 @@ jobs:
       uses: Azure/webapps-deploy@v2
       with:
         app-name: ak-windows-container
-        images: akshaya95/dotnetsamplewebapp:latest
+        images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
     
