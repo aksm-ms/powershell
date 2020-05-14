@@ -11,6 +11,14 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: login to azure registry
+      run: |
+        az acr login --name akTestContainerApp
+    - uses: azure/docker-login@v1
+      with:
+        login-server: aktestcontainerapp.azurecr.io
+        username: ''
+        password: ''
     - name: Azure WebApp deploy
       uses: Azure/webapps-deploy@v2
       with:
