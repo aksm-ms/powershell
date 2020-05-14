@@ -7,18 +7,19 @@ jobs:
     name: 'Build job'
     runs-on: ubuntu-latest
     steps:
-    - name: 'Azure PS login testing'
-      uses: azure/login@v1.1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+#     - name: 'Azure PS login testing'
+#       uses: azure/login@v1.1
+#       with:
+#         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: login to docker
       run: |
         az acr login --name akTestContainerApp
         docker pull aktestcontainerapp.azurecr.io/dotnetsamplelinwebapp:latest
         docker run --rm -d  -p 5000:5000/tcp aktestcontainerapp.azurecr.io/dotnetsamplelinwebapp:latest
-#     - name: Azure WebApp deploy
-#       uses: Azure/webapps-deploy@v2
-#       with:
-#         app-name: ak-linux-container
-#         images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
+    - name: Azure WebApp deploy
+      uses: aksm-ms/webapps-deploy@publish-profile-container
+      with:
+        app-name: ak-linux-container
+        images: aktestcontainerapp.azurecr.io/dotnetsamplewebapp:latest
+        publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
     
