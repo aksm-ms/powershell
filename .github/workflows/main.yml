@@ -4,9 +4,9 @@ on:
     branches: [ login-time ]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-    - name: Azure PS login
+    - name: 'Azure PS login'
       uses: aksm-ms/login@login-time-check
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
