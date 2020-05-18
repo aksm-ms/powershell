@@ -1,19 +1,13 @@
 name: CI
 on:
   push:
-    branches: [ test ]
+    branches: [ login-time ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Azure PS login
-      uses: azure/login@releases/v2-beta
+      uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-PSSession: true
-    - name: Running Az Powershell
-      uses: azure/powershell@releases/v1
-      with:
-        inlineScript: |
-          Get-AzVm -ResourceGroupName "akshaya-test"
-        azPSVersion: 'latest'
