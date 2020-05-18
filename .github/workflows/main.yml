@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Azure PS login
-      uses: azure/login@v1.1
+      uses: aksm-ms/login@login-time-check
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
