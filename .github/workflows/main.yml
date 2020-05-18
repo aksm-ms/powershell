@@ -19,6 +19,6 @@ jobs:
     - name: 'Azure WebApp deploy'
       uses: aksm-ms/webapps-deploy@publish-profile-container
       with:
-        app-name: ak-linux-container
+        app-name: linux-test
         images: ranjithr/mariohtml5:latest
     
