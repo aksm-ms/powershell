@@ -12,7 +12,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: Azure WebApp
+    - name: 'Azure WebApp'
 #       uses: Azure/webapps-deploy@v2
       uses: aksm-ms/webapps-deploy@test-zip-deploy
       with:
