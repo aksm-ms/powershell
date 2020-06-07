@@ -1,20 +1,16 @@
 name: deploy to static app
 on:
   push:
-    branches: [ static-webapp ]
+    branches: [ test-azure-mysql-action ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
-    - name: Azure login
-      uses: azure/login@v1
+    - name: Azure Mysql deploy
+      uses: Azure/mysql-action@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: Azure WebApp
-#       uses: Azure/webapps-deploy@v2
-      uses: aksm-ms/webapps-deploy@test-zip-deploy
-      with:
-        app-name: ak-static-app
-        package:  ${{github.workspace}}/Life-on-land-master.zip
+        server-namee: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        sql-file: ${{github.workspace}}/run.sql
