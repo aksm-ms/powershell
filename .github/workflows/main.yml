@@ -1,4 +1,4 @@
-name: deploy to static app
+name: Testing azure mysql deploy action
 on:
   push:
     branches: [ test-azure-mysql-action ]
@@ -11,6 +11,6 @@ jobs:
     - name: Azure Mysql deploy
       uses: Azure/mysql-action@v1
       with:
-        server-namee: ak-mysql-db.mysql.database.azure.com
+        server-name: ak-mysql-db.mysql.database.azure.com
         connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
