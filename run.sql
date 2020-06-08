@@ -1,4 +1,7 @@
-show databases;
-use akTest;
-show tables;
-select * from temp;
+\l
+
+\c aktest;
+
+\dt
+
+select *  from temp1;
