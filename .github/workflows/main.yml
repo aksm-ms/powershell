@@ -6,8 +6,11 @@ on:
 jobs:
 
   build-and-deploy:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [ubuntu-latest, macos-latest]
     steps:
     - uses: actions/checkout@v2.2.0
     - run: |
-        psql -f ${{github.workspace}}/run.sql "host=ak-db.postgres.database.azure.com port=5432 dbname=postgres user=aksm@ak-db password=Mads.handyvs!2 sslmode=require"
+        psql -f ${{github.workspace}}/run.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
