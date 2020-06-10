@@ -8,6 +8,6 @@ jobs:
     steps:
     - name: Azure login
       run: |
-        which pwsh
+         /usr/bin/pwsh -Command ConvertTo-SecureString "aT+i#" -AsPlainText -Force
       
       
