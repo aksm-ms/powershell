@@ -12,7 +12,8 @@ jobs:
           os: [ubuntu-latest, macos-latest]
     steps:
     - uses: actions/checkout@v2.2.0
-    - run: |
-        #psql -f ${{github.workspace}}/run.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
-        echo "printing pwd"
-        pwd
+    - name: foo
+      run: |
+        psql -f ${{github.workspace}}/run.sql -L ak.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
+      shell: bash
+      
