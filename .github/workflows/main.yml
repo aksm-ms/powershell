@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2.2.0
     - run: |
-        psql -f ${{github.workspace}}/run.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
+        #psql -f ${{github.workspace}}/run.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
+        echo "printing pwd"
+        pwd
