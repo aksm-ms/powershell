@@ -12,7 +12,7 @@ jobs:
           os: [ubuntu-latest, macos-latest]
     steps:
     - uses: actions/checkout@v2.2.0
-    - name: foo
+    - name: 'write to output file'
       run: |
         psql -f ${{github.workspace}}/run.sql -L ak.sql "${{secrets.AZURE_POSTGRES_CONN_STRING}}"
       shell: bash
