@@ -7,10 +7,6 @@ jobs:
     name: 'Build job'
     runs-on: ubuntu-latest
     steps:
-    - name: 'Azure PS login testing'
-      uses: azure/login@v1.1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: 'login to docker'
       uses: azure/docker-login@v1
       with:
@@ -19,6 +15,7 @@ jobs:
     - name: 'Azure WebApp deploy'
       uses: aksm-ms/webapps-deploy@publish-profile-container
       with:
-        app-name: ak-linux-test
+        app-name: ak-test-linux-container
+        publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
         images: ranjithr/mariohtml5:latest
     
