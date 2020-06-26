@@ -16,8 +16,7 @@ jobs:
       uses: aksm-ms/webapps-deploy@publish-profile-container
       with:
         app-name: ak-test-linux-container
-        startup-command: "dotnet run"
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-        images: ranjithr/mariohtml5:latest
+#         images: ranjithr/mariohtml5:latest
 #         images: appsvc/python:latest
     
