@@ -15,7 +15,9 @@ jobs:
     - name: 'Azure WebApp deploy - publish profile with container.'
       uses: aksm-ms/webapps-deploy@publish-profile-container
       with:
-        app-name: ak-test-linux-container
-        publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
+#         app-name: ak-test-linux-container
+#         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
+        publish-profile: ${{secrets.AK_TEST_WIN_CONTAINER_PUBLISH_PROFILE}}
+        app-name: ak-test-win-container
         images: ranjithr/mariohtml5:latest
     
