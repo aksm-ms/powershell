@@ -13,10 +13,11 @@ jobs:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
     - name: 'Azure WebApp deploy - publish profile with container'
-      uses: aksm-ms/webapps-deploy@publish-profile-container-master
+      uses: Azure/webapps-deploy@publish-prof-container
+#       uses: aksm-ms/webapps-deploy@publish-profile-container-master
       with:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-#         images: ranjithr/mariohtml5:latest
-        images: appsvc/python:latest
+        images: ranjithr/mariohtml5:latest
+#         images: appsvc/python:latest
     
