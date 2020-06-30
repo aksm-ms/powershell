@@ -18,7 +18,7 @@ jobs:
       with:
 #         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-        app-name: ak-test-foo-container
+        app-name: ak-test-win-container
 #         images: ranjithr/mariohtml5:latest
         images: appsvc/python:latest
     
