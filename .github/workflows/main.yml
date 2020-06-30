@@ -19,6 +19,6 @@ jobs:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
         images: ranjithr/mariohtml5:latest
+        package: .
 #         images: appsvc/python:latest
-        configuration-file: my-config
     
