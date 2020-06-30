@@ -10,7 +10,7 @@ jobs:
 #     - uses: azure/login@v1.1
     - name: test env
       env:
-        FOO: 'i am foo'
+        FOO: ${{secrets.FOO}}
       run: |
         echo $FOO
     - uses: azure/login@v1
