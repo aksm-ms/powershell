@@ -13,7 +13,7 @@ jobs:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
     - name: 'Azure WebApp deploy - publish profile with container'
-      uses: Azure/webapps-deploy@v2
+      uses: Azure/webapps-deploy@v2.1
       with:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
