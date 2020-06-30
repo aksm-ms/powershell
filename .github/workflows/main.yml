@@ -8,9 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 #     - uses: azure/login@v1.1
+    - name: test env
+      env:
+        FOO: 'i am foo'
+      run: |
+        echo $FOO
     - uses: azure/login@v1
+      env:
+        CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     
     - run: |
-        az vm list
+        az account show
