@@ -12,3 +12,8 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
+    - name: testing
+      run: |
+         Get-AzContext
+      shell:
+        pwsh
