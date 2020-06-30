@@ -4,10 +4,11 @@ on:
     branches: [ login-time ]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: 'Azure PS login'
-      uses: aksm-ms/login@login-perf
+#       uses: aksm-ms/login@login-perf
+      uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
