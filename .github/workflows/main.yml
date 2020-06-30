@@ -12,7 +12,10 @@ jobs:
       env:
         FOO: ${{secrets.FOO}}
       run: |
-        echo $FOO
+        bar="$FOO-ak"
+        echo $bar
+      shell:
+        bash
     - uses: azure/login@v1
       env:
         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
