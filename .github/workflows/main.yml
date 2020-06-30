@@ -7,11 +7,12 @@ jobs:
     name: 'Build job'
     runs-on: ubuntu-latest
     steps:
-    - name: 'login to docker'
-    - uses: azure/login@v1
+    - name: Azure login
+      uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - uses: azure/docker-login@v1
+    - name: 'login to docker'
+      uses: azure/docker-login@v1
       with:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
