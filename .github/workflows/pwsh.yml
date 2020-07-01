@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    paths:
+      - '.github/workflows/pwsh.yml'
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: 'PS Core version'
+      run: |
+         pwsh -v
+      shell:
+        powershell
