@@ -14,7 +14,8 @@ jobs:
          echo $env:PSModulePath
          
          echo "setting module path in env var"
-         $env:PSModulePath = "/usr/share/:" + $env.PSModulePath
+         #$env:PSModulePath = "/usr/share/:" + $env.PSModulePath
+         $env:PSModulePath = "C:\Modules\;" + $env.PSModulePath
          
          echo "printing PSModulePath again"
          echo $env:PSModulePath
