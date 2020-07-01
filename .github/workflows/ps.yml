@@ -10,6 +10,10 @@ jobs:
     steps:
     - name: 'PS Commands'
       run: |
+         echo "Date"
+         Get-Date -Format "dddd MM/dd/yyyy HH:mm:ss:ms"
+         echo ""
+         
          $sw = [Diagnostics.Stopwatch]::StartNew()
          echo "printing PSModulePath"
          $t = Measure-Command { echo $env:PSModulePath }
@@ -34,6 +38,11 @@ jobs:
          
          $sw.Stop()
          echo "elapsed: $($sw.Elapsed)"
+         echo ""
+         
+         echo "Date"
+         Get-Date -Format "dddd MM/dd/yyyy HH:mm:ss:ms"
+         echo ""
       shell:
         pwsh
 
