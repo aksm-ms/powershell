@@ -16,7 +16,7 @@ jobs:
          
          $sw = [Diagnostics.Stopwatch]::StartNew()
          echo "printing PSModulePath"
-         $t = Measure-Command { echo $env:PSModulePath }
+         $t = Measure-Command { echo $env:PSModulePath | Out-Default }
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
          echo "" 
          
@@ -27,12 +27,12 @@ jobs:
          echo ""
          
          echo "printing PSModulePath again"
-         $t = Measure-Command { echo $env:PSModulePath }
+         $t = Measure-Command { echo $env:PSModulePath | Out-Default}
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
          echo ""
          
          echo "running get module"
-         $t = Measure-Command { Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1 }
+         $t = Measure-Command { Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1 | Out-Default }
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
          echo ""
          
