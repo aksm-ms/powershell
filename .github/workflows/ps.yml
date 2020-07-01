@@ -6,20 +6,30 @@ on:
     
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
     - name: 'PS Commands'
       run: |
          echo "printing PSModulePath"
-         echo $env:PSModulePath
+         $t = Measure-Command { echo $env:PSModulePath }
+         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
+         echo "" 
          
          echo "setting module path in env var"
          #$env:PSModulePath = "/usr/share/:" + $env.PSModulePath
-         #$env:PSModulePath = "C:\Modules\;" + $env.PSModulePath
+         $t = Measure-Command { $env:PSModulePath = "C:\Modules\;" + $env.PSModulePath }
+         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
+         echo ""
          
          echo "printing PSModulePath again"
-         echo $env:PSModulePath
+         $t = Measure-Command { echo $env:PSModulePath }
+         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
+         echo ""
          
          echo "running get module"
-         Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+         $t = Measure-Command { Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1 }
+         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
+         echo ""
+      shell:
+        pwsh
 
