@@ -10,6 +10,7 @@ jobs:
     steps:
     - name: 'PS Commands'
       run: |
+         $sw = [Diagnostics.Stopwatch]::StartNew()
          echo "printing PSModulePath"
          $t = Measure-Command { echo $env:PSModulePath }
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
@@ -30,6 +31,9 @@ jobs:
          $t = Measure-Command { Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1 }
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
          echo ""
+         
+         $sw.Stop()
+         echo "elapsed: $($sw.Elapsed)
       shell:
         pwsh
 
