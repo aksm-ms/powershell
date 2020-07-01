@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    paths:
+      - '.github/workflows/ps.yml'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: PS Commands
+      run: |
+         Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+      shell:
+        pwsh
