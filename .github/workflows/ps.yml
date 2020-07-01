@@ -20,11 +20,11 @@ jobs:
          echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
          echo "" 
          
-         echo "setting module path in env var"
+         #echo "setting module path in env var"
          #$env:PSModulePath = "/usr/share/:" + $env.PSModulePath
-         $t = Measure-Command { $env:PSModulePath = "C:\Modules\;" + $env.PSModulePath }
-         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
-         echo ""
+         #$t = Measure-Command { $env:PSModulePath = "C:\Modules\;" + $env.PSModulePath }
+         #echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
+         #echo ""
          
          echo "printing PSModulePath again"
          $t = Measure-Command { echo $env:PSModulePath | Out-Default}
