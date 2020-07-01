@@ -1,7 +1,8 @@
 name: CI
 on:
   push:
-    branches: [ login-time ]
+    paths: 
+      - '.github/workflows/main.yml'
 jobs:
   build:
     runs-on: self-hosted
