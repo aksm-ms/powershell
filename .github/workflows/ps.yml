@@ -33,7 +33,7 @@ jobs:
          echo ""
          
          $sw.Stop()
-         echo "elapsed: $($sw.Elapsed)
+         echo "elapsed: $($sw.Elapsed)"
       shell:
         pwsh
 
