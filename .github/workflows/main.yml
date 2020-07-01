@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: 'Azure PS login'
+    - name: Azure PS login
 #       uses: aksm-ms/login@login-perf
       uses: azure/login@v1.1
       with:
