@@ -10,6 +10,11 @@ jobs:
     steps:
     - name: PS Commands
       run: |
+         echo "printing PSModulePath"
+         echo $env:PSModulePath
+         echo "setting module path in env var"
+         $env:PSModulePath = "/usr/share/:" + $env.PSModulePath
+         echo "running get module"
          Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
       shell:
         pwsh
