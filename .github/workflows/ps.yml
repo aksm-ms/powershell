@@ -22,4 +22,4 @@ jobs:
          echo "running get module"
          Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
       shell:
-        pwsh
+        powershell
