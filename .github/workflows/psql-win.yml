@@ -1,7 +1,8 @@
 name: CI
 on:
   push:
-      paths: '.github/workflows/psql-win.yml'
+      paths: 
+        - '.github/workflows/psql-win.yml'
     
 jobs:
   build-and-deploy:
