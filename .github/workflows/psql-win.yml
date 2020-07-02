@@ -1,7 +1,6 @@
 name: CI
 on:
   push:
-    branches:
       paths: '.github/workflows/psql-win.yml'
     
 jobs:
