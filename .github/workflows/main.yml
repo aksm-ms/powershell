@@ -5,7 +5,7 @@ on:
       - '.github/workflows/main.yml'
 jobs:
   build:
-    runs-on: ak-test-login
+    runs-on: self-hosted
     steps:
     - name: Azure PS login
 #       uses: aksm-ms/login@login-perf
