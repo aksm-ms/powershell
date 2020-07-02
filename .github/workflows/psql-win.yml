@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches:
+      paths: '.github/workflows/psql-win.yml'
+    
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: check if psql exists
+      run: |
+        psql --version
+   
+        
+      
