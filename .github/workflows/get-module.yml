@@ -9,14 +9,7 @@ jobs:
     steps:
     - name: get path
       run: |
-        #echo $env:PSModulePath
-        #$env:PSModulePath="C:\Modules\;" + $env:PSModulePath
-        #echo $env:PSModulePath
-        #$m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
-        #echo $m.Path
-        #echo $m.Version
-        cd /usr/share/az_1.6.0
-        cd /usr/share | grep az
+        ls /usr/share | grep az
       shell:
         bash
         
