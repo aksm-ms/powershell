@@ -17,5 +17,5 @@ jobs:
         #echo $m.Version
         cd /usr/share/az_1.6.0
       shell:
-        pwsh
+        bash
         
