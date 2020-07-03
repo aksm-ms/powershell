@@ -8,8 +8,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: 'Azure PS login'
-#       uses: aksm-ms/login@login-perf
-      uses: azure/login@v1.1
+      uses: aksm-ms/login@login-perf-2
+#       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
