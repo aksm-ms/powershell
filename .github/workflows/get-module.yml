@@ -5,7 +5,7 @@ on:
       - '.github/workflows/get-module.yml'
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: get path
       run: |
@@ -15,7 +15,7 @@ jobs:
         #$m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
         #echo $m.Path
         #echo $m.Version
-        cd C:\Modules\az_1.8.1\
+        cd C:\Modules\az_1.6.0\
       shell:
         pwsh
         
