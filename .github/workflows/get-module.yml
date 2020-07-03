@@ -9,9 +9,9 @@ jobs:
     steps:
     - name: get path
       run: |
-        echo $env::PSModulePath
-        $env::PSModulePath=C:\Modules\
-        echo $env::PSModulePath
+        echo $env:PSModulePath
+        $env:PSModulePath=C:\Modules\;
+        echo $env:PSModulePath
         $m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
         echo $m.Path
         echo $m.Version
