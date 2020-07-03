@@ -9,12 +9,13 @@ jobs:
     steps:
     - name: get path
       run: |
-        echo $env:PSModulePath
-        $env:PSModulePath="C:\Modules\;" + $env:PSModulePath
-        echo $env:PSModulePath
-        $m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
-        echo $m.Path
-        echo $m.Version
+        #echo $env:PSModulePath
+        #$env:PSModulePath="C:\Modules\;" + $env:PSModulePath
+        #echo $env:PSModulePath
+        #$m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+        #echo $m.Path
+        #echo $m.Version
+        cd C:\Modules\az_1.8.1\
       shell:
         pwsh
         
