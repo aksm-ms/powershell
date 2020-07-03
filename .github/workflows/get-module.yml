@@ -9,7 +9,10 @@ jobs:
     steps:
     - name: get path
       run: |
+        export PSModulePath=/usr/share/
         $m = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
         echo $m.Path
         echo $m.Version
+      shell:
+        pwsh
         
