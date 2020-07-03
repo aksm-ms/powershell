@@ -7,19 +7,14 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: 'set env var'
-      run: |
-        $env:PSModulePath = "C:\Modules\az_1.0.0\"
-      shell:
-        pwsh
     - name: Azure PS login
       uses: aksm-ms/login@login-perf-2
 #       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
-#     - name: testing
-#       uses: Azure/powershell@v1
-#       with:
-#         inlineScript: 'Get-AzContext'
-#         azPSVersion: 'latest'
+    - name: testing
+      uses: Azure/powershell@v1
+      with:
+        inlineScript: 'Get-AzContext'
+        azPSVersion: 'latest'
