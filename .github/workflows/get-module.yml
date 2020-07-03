@@ -5,11 +5,10 @@ on:
       - '.github/workflows/get-module.yml'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: get path
       run: |
-        ls /usr/share | grep az
-      shell:
-        bash
+        ls C:\Modules\az_1.0.0
+      
         
