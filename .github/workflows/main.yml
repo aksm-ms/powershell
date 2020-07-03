@@ -5,7 +5,7 @@ on:
       - '.github/workflows/main.yml'
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Azure PS login
       uses: aksm-ms/login@login-perf-2
@@ -13,8 +13,8 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
-    - name: testing
-      uses: Azure/powershell@v1
-      with:
-        inlineScript: 'Get-AzContext'
-        azPSVersion: 'latest'
+#     - name: testing
+#       uses: Azure/powershell@v1
+#       with:
+#         inlineScript: 'Get-AzContext'
+#         azPSVersion: 'latest'
