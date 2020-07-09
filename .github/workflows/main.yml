@@ -20,8 +20,9 @@ jobs:
       uses: aksm-ms/webapps-deploy@enum-fix
 #       uses: Azure/webapps-deploy@v2
       with:
-        app-name: ak-test-win-container
-        images: appsvc/dotnetcore
+        app-name: ak-win-container-enum
+        images: mcr.microsoft.com/azure-app-service/samples/aspnethelloworld:latest
+#         images: appsvc/dotnetcore
 #         images: appsvc/python:latest
 #         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
 #         images: ranjithr/mariohtml5:latest
