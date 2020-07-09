@@ -17,7 +17,8 @@ jobs:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
     - name: 'Azure WebApp deploy - publish profile with container'
-      uses: Azure/webapps-deploy@v2
+      uses: aksm-ms/webapps-deploy@enum-fix
+#       uses: Azure/webapps-deploy@v2
       with:
         app-name: ak-test-win-container
         images: appsvc/dotnetcore
