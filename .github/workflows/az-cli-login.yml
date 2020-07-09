@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     paths:
-      - './github/workflows/az-cli-login.yml'
+      - '.github/workflows/az-cli-login.yml'
     
 jobs:
   build-and-deploy:
