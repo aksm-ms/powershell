@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     paths:
-      - './github/workflows/main.yml'
+      - '.github/workflows/main.yml'
     
 jobs:
   build-and-deploy:
