@@ -19,8 +19,9 @@ jobs:
     - name: 'Azure WebApp deploy - publish profile with container'
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: ak-test-linux-container
-        images: appsvc/python:latest
+        app-name: ak-test-win-container
+        images: appsvc/dotnetcore
+#         images: appsvc/python:latest
 #         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
 #         images: ranjithr/mariohtml5:latest
         
