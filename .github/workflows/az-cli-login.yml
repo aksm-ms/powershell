@@ -22,4 +22,4 @@ jobs:
       with:
         azPSVersion: '3.1.0'
         inlineScript: |
-          Get-AzVM -ResourceGroupName "ActionsDemo"
+          Get-AzVM -ResourceGroupName "akshaya-tests"
