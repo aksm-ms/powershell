@@ -7,24 +7,18 @@ jobs:
     name: 'Build job'
     runs-on: ubuntu-latest
     steps:
-    - name: Azure login
-      uses: azure/login@v1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: 'login to docker'
       uses: azure/docker-login@v1
       with:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
     - name: 'Azure WebApp deploy - publish profile with container'
-      uses: aksm-ms/webapps-deploy@enum-fix
-#       uses: Azure/webapps-deploy@v2
+      uses: Azure/webapps-deploy@v2
       with:
         app-name: ak-win-container-enum
+        publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
         images: mcr.microsoft.com/iotedge/discovery
-#         images: appsvc/dotnetcore
 #         images: appsvc/python:latest
-#         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-#         images: ranjithr/mariohtml5:latest
+        images: ranjithr/mariohtml5:latest
         
     
