@@ -7,13 +7,17 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: Azure PS login
+    - name: 'Azure PS login'
       uses: aksm-ms/login@login-perf-2
 #       uses: azure/login@v1.1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
-    - name: testing
+    - name: testing az cli
+      run: |
+        az account show
+        
+    - name: testing az PS
       uses: Azure/powershell@v1
       with:
         inlineScript: 'Get-AzContext'
