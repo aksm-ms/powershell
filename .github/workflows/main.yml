@@ -6,19 +6,21 @@ jobs:
   build:
     name: 'Build job'
     runs-on: ubuntu-latest
+    
     steps:
     - name: 'login to docker'
       uses: azure/docker-login@v1
       with:
         username: ${{secrets.REGISTRY_USERNAME}}
         password: ${{secrets.REGISTRY_PASSWORD}}
+      
     - name: 'Azure WebApp deploy - publish profile with container'
       uses: Azure/webapps-deploy@v2
       with:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-        images: ranjithr/mariohtml5:latest
-#         images: appsvc/python:latest
+        images: appsvc/python:latest
+#         images: ranjithr/mariohtml5:latest
         
         
     
