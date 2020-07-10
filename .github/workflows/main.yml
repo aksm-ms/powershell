@@ -17,8 +17,8 @@ jobs:
       with:
         app-name: ak-win-container-enum
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-        images: mcr.microsoft.com/iotedge/discovery
-#         images: appsvc/python:latest
         images: ranjithr/mariohtml5:latest
+#         images: appsvc/python:latest
+        
         
     
