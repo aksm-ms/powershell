@@ -17,7 +17,7 @@ jobs:
       run: |
         az account show
         
-    - name: testing az PS
+    - name: 'testing az PS'
       uses: Azure/powershell@v1
       with:
         inlineScript: 'Get-AzContext'
