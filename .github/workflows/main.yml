@@ -17,10 +17,11 @@ jobs:
     - name: 'Azure WebApp deploy - publish profile with container'
       uses: aksm-ms/webapps-deploy@appruntime-fix
       with:
-        app-name: ak-test-linux-container
-        publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
-        images: appsvc/python:latest
-#         images: ranjithr/mariohtml5:latest
+        app-name: ak-test-asp
+        publish-profile: ${{secrets.AK_TEST_ASP_PUBLISH_PROFILE}}
+        package: ./ASP_NET_Core_API_sample_for_Azure_App_Service.zip
+#         images: appsvc/python:latest
+# #         images: ranjithr/mariohtml5:latest
         
         
     
