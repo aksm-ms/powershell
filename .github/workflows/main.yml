@@ -15,7 +15,7 @@ jobs:
         password: ${{secrets.REGISTRY_PASSWORD}}
       
     - name: 'Azure WebApp deploy - publish profile with container'
-      uses: Azure/webapps-deploy@v2
+      uses: aksm-ms/webapps-deploy@appruntime-fix
       with:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
