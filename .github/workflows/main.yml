@@ -22,7 +22,7 @@ jobs:
       with:
         app-name: ak-test-asp
         publish-profile: ${{secrets.AK_TEST_ASP_PUBLISH_PROFILE}}
-        package: ${{GITHUB_WORKSPACE}}/ASP_NET_Core_API_sample_for_Azure_App_Service.zip
+        package: ${{github.workspace}}/ASP_NET_Core_API_sample_for_Azure_App_Service.zip
 #         images: appsvc/python:latest
 # #         images: ranjithr/mariohtml5:latest
         
