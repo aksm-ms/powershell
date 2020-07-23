@@ -1,7 +1,8 @@
 name: CI
 on:
   push:
-    branches: [ test ]
+     paths:
+      - '.github/workflows/win-2016.yml'
 jobs:
   build:
     runs-on: windows-2016
