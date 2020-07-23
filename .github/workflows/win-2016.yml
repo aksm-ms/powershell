@@ -9,10 +9,23 @@ jobs:
     steps:
     - name: run PS commands
       run: |
+        echo "ls C:\Modules\az_*"
+        ls C:\Modules\az_*
+        
+        echo "ls C:\Modules\az_4.3.0\Az.Accounts\"
         ls C:\Modules\az_4.3.0\Az.Accounts\
+        
+        echo "ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1"
         ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1
+        
+        echo "Get-Module -Name Az.Accounts"
         Get-Module -Name Az.Accounts
+        
+        echo "Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\1.9.1\Az.Accounts.psd1 -Global"
         Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\1.9.1\Az.Accounts.psd1 -Global
+        
+        echo "Get-Module -Name Az.Accounts"
         Get-Module -Name Az.Accounts
+        
         echo "done"
       shell: powershell
