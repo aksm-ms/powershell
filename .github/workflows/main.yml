@@ -9,7 +9,9 @@ jobs:
     steps:
     - name: run PS commands
       run: |
-        $env:PSModulePath="C:\Modules"
-        Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+        $env:PSModulePath="C:\Modules\az_4.3.0"
+        $latestModule = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+        $version = $latestModule.Version.ToString()
+        Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\$version\Az.Accounts.psd1 -Global
       shell: powershell
           
