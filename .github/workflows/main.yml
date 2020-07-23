@@ -6,17 +6,10 @@ jobs:
   build:
     runs-on: windows-2019
     steps:
-    - name: Azure PS login
-      uses: azure/login@v1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-PSSession: true
-      
-    - name: Running Az Powershell
-      uses: Azure/powershell@v1
-      with:
-        inlineScript: |
-          ls C:\Modules\az_4.3.0\Az.Accounts\
-          ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1
-          Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\1.9.1\Az.Accounts.psd1 -Global
-        azPSVersion: 'latest'
+    - name: run PS commands
+      run: |
+        ls C:\Modules\az_4.3.0\Az.Accounts\
+        ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1
+        Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\1.9.1\Az.Accounts.psd1 -Global
+      shell: powershell
+          
