@@ -11,9 +11,11 @@ jobs:
       run: |
         echo "ls C:\Modules\az_*"
         ls C:\Modules\az_*
-        
-        echo "ls C:\Modules\az_3.8.0\Az.Accounts\"
-        ls C:\Modules\az_3.8.0\Az.Accounts\
+      
+        $env:PSModulePath="C:\Modules"
+        $m = Get-Module -Name Az.Accounts -ListAvailable
+        echo $m
+        echo $m.Version
         
         # echo "ls C:\Modules\az_4.3.0\Az.Accounts\"
         # ls C:\Modules\az_4.3.0\Az.Accounts\
