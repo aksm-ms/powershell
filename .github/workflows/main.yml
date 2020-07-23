@@ -10,6 +10,6 @@ jobs:
     - name: run PS commands
       run: |
         $env:PSModulePath="C:\Modules"
-        Get-Module -Name Az.Accounts -ListAvailable
+        Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
       shell: powershell
           
