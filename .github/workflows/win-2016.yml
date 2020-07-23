@@ -9,6 +9,6 @@ jobs:
     steps:
     - name: run PS commands
       run: |
-        ls C:\Modules\az_*
-        ls C:\Modules\az_4.3.0\Az.Accounts\
+        ls C:\Modules\az_*\Az.Accounts\*
+        # ls C:\Modules\az_4.3.0\Az.Accounts\
       shell: powershell
