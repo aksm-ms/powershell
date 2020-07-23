@@ -8,8 +8,11 @@ jobs:
     steps:
     - name: run PS commands
       run: |
-        ls C:\Modules\az_4.3.0\Az.Accounts\
-        ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1
+        # ls C:\Modules\az_4.3.0\Az.Accounts\
+        # ls C:\Modules\az_4.3.0\Az.Accounts\1.9.1
+        Get-Module -Name Az.Accounts
         Import-Module -Name C:\Modules\az_4.3.0\Az.Accounts\1.9.1\Az.Accounts.psd1 -Global
+        Get-Module -Name Az.Accounts
+        echo "done"
       shell: powershell
           
