@@ -11,11 +11,10 @@ jobs:
       run: |
         $env:PSModulePath="C:\Modules\;$env:PSModulePath" 
         $latestModule = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
-        $version = $latestModule.Version.ToString()
         echo $latestModule
 
-        echo "Import-Module -Name Az.Acounts $version.Path -Global"
-        Import-Module -Name Az.Acounts $version.Path -Global
+        echo "Import-Module -Name Az.Acounts $latestModule.Path -Global"
+        Import-Module -Name Az.Acounts $latestModule.Path -Global
 
         echo "Clear-AzContext -Scope Process"
         Clear-AzContext -Scope Process
