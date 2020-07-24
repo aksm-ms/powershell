@@ -13,9 +13,9 @@ jobs:
         $latestModule = Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
         echo $latestModule
 
-        echo "Import-Module -Name Az.Acounts $latestModule.Path -Global"
-        Import-Module -Name Az.Acounts $latestModule.Path -Global
-
+        echo "Import-Module -Name $latestModule.Path -Global -PassThru -Force"
+        Import-Module -Name $latestModule.Path -Global -PassThru -Force
+        
         echo "Clear-AzContext -Scope Process"
         Clear-AzContext -Scope Process
 
