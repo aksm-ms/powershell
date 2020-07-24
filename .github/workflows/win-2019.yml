@@ -10,7 +10,7 @@ jobs:
     - name: run PS commands
       run: |
         $env:PSModulePath="C:\Modules\;$env:PSModulePath" 
-        $latestModule = Get-Module -Name Az -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
+        $latestModule = Get-Module -Name Az.RecoveryServices -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1
         echo $latestModule
 
         echo "Import-Module -Name $latestModule.Path -Global -PassThru -Force"
