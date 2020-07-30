@@ -19,7 +19,7 @@ jobs:
       run: |
         echo "foo"
         
-   macos-runner:
+  macos-runner:
     runs-on: macos-latest
     steps:
     - name: echo foo on macos
