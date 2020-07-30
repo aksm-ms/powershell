@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    paths:
+      - '.github/workflows/test-echo.yml'
+    
+jobs:
+  ubuntu-runner:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo foo on ubuntu
+      run: |
+        echo "foo"
+  
+  windows-runner:
+    runs-on: windows-latest
+    steps:
+    - name: echo foo on windows
+      run: |
+        echo "foo"
+        
+   macos-runner:
+    runs-on: macos-latest
+    steps:
+    - name: echo foo on macos
+      run: |
+        echo "foo"
+        
+   
+        
+      
