@@ -15,9 +15,9 @@ jobs:
   windows-runner:
     runs-on: windows-latest
     steps:
-    - name: echo foo on windows
+    - name: Write-Output foo on windows
       run: |
-        echo "foo"
+        Write-Output "foo"
         
   macos-runner:
     runs-on: macos-latest
