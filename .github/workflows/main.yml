@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 #     - uses: azure/login@v1.1
-    - name: test env
-      env:
-        FOO: ${{secrets.FOO}}
-      run: |
-        bar="$FOO-ak"
-        echo $bar
-      shell:
-        bash
+#     - name: test env
+#       env:
+#         FOO: ${{secrets.FOO}}
+#       run: |
+#         bar="$FOO-ak"
+#         echo $bar
+#       shell:
+#         bash
     - uses: azure/login@v1
       env:
         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
