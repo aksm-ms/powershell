@@ -9,7 +9,7 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2 
       
-    - name: Azure Mysql deploy
+    - name: 'Azure Mysql deploy'
       uses: Azure/mysql-action@v1
       
       with:
