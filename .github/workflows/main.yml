@@ -10,7 +10,9 @@ jobs:
       uses: actions/checkout@v2 
       
     - name: 'Azure Mysql deploy'
-      uses: Azure/mysql-action@v1
+      uses: aksm-ms/mysql-action@releases/v1
+#       uses: Azure/mysql-action@v1
+
       
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
