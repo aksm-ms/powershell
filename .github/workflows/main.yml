@@ -9,6 +9,11 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2 
       
+    - name: Azure login
+      uses: Azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        
     - name: 'Azure Mysql deploy.'
       uses: aksm-ms/mysql-action@releases/v1
 #       uses: Azure/mysql-action@v1
