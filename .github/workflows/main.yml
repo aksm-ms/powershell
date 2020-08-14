@@ -21,5 +21,6 @@ jobs:
       
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
+#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
