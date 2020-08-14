@@ -14,7 +14,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         
-    - name: 'Azure Mysql deploy'
+    - name: Azure Mysql deploy
 #       uses: aksm-ms/mysql-action@releases/v1
       uses: Azure/mysql-action@v1
 
