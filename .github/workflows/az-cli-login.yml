@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
     steps:
-    - name: 'az login v1'
+    - name: az login v1
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
