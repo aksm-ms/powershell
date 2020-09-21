@@ -8,9 +8,14 @@ jobs:
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
+      
     - name: download npm dep
       run: |
         npm install
+        
+    - name: get folder contents
+      run: |
+        ls -lrt /home/runner/work/powershell/powershell
         
       
 #     - name: Azure login
@@ -22,6 +27,5 @@ jobs:
       uses: aksm-ms/mysql-action@master
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
-#         connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
         connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
