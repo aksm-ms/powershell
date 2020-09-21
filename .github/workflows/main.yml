@@ -8,6 +8,10 @@ jobs:
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
+    - name: download npm dep
+      run: |
+        npm install
+        
       
 #     - name: Azure login
 #       uses: Azure/login@v1
@@ -15,10 +19,7 @@ jobs:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
         
     - name: 'Azure Mysql deploy'
-#       uses: aksm-ms/mysql-action@releases/v1
-      uses: Azure/mysql-action@v1
-
-      
+      uses: aksm-ms/mysql-action@master
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
 #         connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
