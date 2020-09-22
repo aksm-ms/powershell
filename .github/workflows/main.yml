@@ -15,7 +15,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         
     - name: 'Azure Mysql deploy'
-      uses: aksm-ms/mysql-action@master-clone
+      uses: Azure/mysql-action@users/aksm/fix-azure-login
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
         connection-string: ${{secrets.MYSQL_CONN_STRING}}
