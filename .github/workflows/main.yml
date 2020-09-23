@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
+      with:
+          path: 'AzureSqlAction'
       
 #     - name: Azure login
 #       uses: Azure/login@v1
@@ -17,8 +19,7 @@ jobs:
 
     - name: installing npm modules
       run: |
-        pwd
-        mkdir sql-action
+        cd AzureSqlAction
         npm install
         
     - name: Run SQL script file
