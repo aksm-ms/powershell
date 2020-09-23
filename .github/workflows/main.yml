@@ -2,6 +2,7 @@ name: Testing azure sql deploy action
 on:
   push:
     branches: [ mssql-test ]
+    
 jobs:
   build:
     runs-on: windows-latest
@@ -16,6 +17,8 @@ jobs:
 
     - name: installing npm modules
       run: |
+        pwd
+        mkdir sql-action
         npm install
         
     - name: Run SQL script file
