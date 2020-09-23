@@ -1,7 +1,7 @@
-name: Testing azure mysql deploy action
+name: Testing azure sql deploy action
 on:
   push:
-    branches: [ test-azure-mysql-action ]
+    branches: [ mssql-test ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,14 +9,15 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2 
       
-#     - name: Azure login
-#       uses: Azure/login@v1
-#       with:
-#         creds: ${{secrets.AZURE_CREDENTIALS}}
-        
-    - name: 'Azure Mysql deploy'
-      uses: Azure/mysql-action@v1
+    - name: Azure login
+      uses: Azure/login@v1
       with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STRING}}
-        sql-file: ${{github.workspace}}/run.sql
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        
+    - name: Run SQL script file
+      uses: azure/sql-action@v1
+      with:
+        server-name: ak-sql-db-server.database.windows.net
+        connection-string: ${{ secrets.SQL_CONN_STRING }}
+        sql-file: ${{github.workspace}}/TestSqlFile.sql
+        arguments: '-t 10'
