@@ -13,9 +13,14 @@ jobs:
 #       uses: Azure/login@v1
 #       with:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
+
+    - name: installing npm modules
+      run: |
+        npm install
         
     - name: Run SQL script file
-      uses: azure/sql-action@v1
+      uses: azure/sql-action@users/aksm/fix-azure-login
+#       uses: azure/sql-action@v1
       with:
         server-name: ak-sql-db-server.database.windows.net
         connection-string: ${{ secrets.SQL_CONN_STRING }}
