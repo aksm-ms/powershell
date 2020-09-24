@@ -25,6 +25,7 @@ jobs:
         arguments: '-t 10'
         
     - name: Deploy SQL dacpac package
+      uses: azure/sql-action@releases/v1
       with:
           server-name: ak-sql-db-server.database.windows.net
           connection-string: ${{ secrets.SQL_CONN_STRING }}
