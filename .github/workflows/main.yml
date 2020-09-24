@@ -15,7 +15,7 @@ jobs:
 #       with:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
         
-    - name: 'Run SQL script file'
+    - name: Run SQL script file
       uses: azure/sql-action@releases/v1
 #       uses: azure/sql-action@v1
       with:
