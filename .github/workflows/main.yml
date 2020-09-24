@@ -23,3 +23,10 @@ jobs:
         connection-string: ${{ secrets.SQL_CONN_STRING }}
         sql-file: ${{github.workspace}}/TestSqlFile.sql
         arguments: '-t 10'
+        
+    - name: Deploy SQL dacpac package
+      with:
+          server-name: ak-sql-db-server.database.windows.net
+          connection-string: ${{ secrets.SQL_CONN_STRING }}
+          dacpac-package: ${{github.workspace}}/TestDatabaseProject.dacpac
+          arguments: '/p:AllowIncompatiblePlatform=true'
