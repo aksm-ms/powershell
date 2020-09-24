@@ -16,7 +16,7 @@ jobs:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
         
     - name: 'Run SQL script file'
-      uses: azure/sql-action@users/aksm/fix-azure-login
+      uses: azure/sql-action@users/aksm/fix-azure-login-releasesv1
 #       uses: azure/sql-action@v1
       with:
         server-name: ak-sql-db-server.database.windows.net
