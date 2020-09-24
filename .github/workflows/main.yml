@@ -16,7 +16,8 @@ jobs:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
         
     - name: Run SQL script file
-      uses: azure/sql-action@v1
+      uses: azure/sql-action@users/aksm/depedabot-releasesv1
+#       uses: azure/sql-action@v1
       with:
         server-name: ak-sql-db-server.database.windows.net
         connection-string: ${{ secrets.SQL_CONN_STRING }}
@@ -24,7 +25,8 @@ jobs:
         arguments: '-t 10'
         
     - name: Deploy SQL dacpac package
-      uses: azure/sql-action@v1
+      uses: azure/sql-action@users/aksm/depedabot-releasesv1
+#       uses: azure/sql-action@v1
       with:
           server-name: ak-sql-db-server.database.windows.net
           connection-string: ${{ secrets.SQL_CONN_STRING }}
