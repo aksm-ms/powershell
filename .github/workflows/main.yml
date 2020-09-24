@@ -5,6 +5,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
@@ -14,9 +15,62 @@ jobs:
 #       with:
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
         
-    - name: 'Azure Mysql deploy'
+#     - name: 'Azure Mysql deploy'
+#       uses: Azure/mysql-action@v1
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
+#         sql-file: ${{github.workspace}}/run.sql
+
+    - name: 'ADO.NET'
       uses: Azure/mysql-action@v1
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        connection-string: ${{secrets.MYSQL_CONN_STR_ADO_NET }}
         sql-file: ${{github.workspace}}/run.sql
+
+    - name: 'JDBC'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
+        sql-file: ${{github.workspace}}/run.sql
+        
+    - name: 'Node js'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STR_NODEJS}}
+        sql-file: ${{github.workspace}}/run.sql
+    
+    - name: 'PHP'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STR_PHP}}
+        sql-file: ${{github.workspace}}/run.sql
+    
+    - name: 'Python'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STR_PYTHON}}
+        sql-file: ${{github.workspace}}/run.sql
+    
+    - name: 'Ruby'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STR_RUBY}}
+        sql-file: ${{github.workspace}}/run.sql
+    
+    - name: 'Webapp'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STR_WEBAPP}}
+        sql-file: ${{github.workspace}}/run.sql
+    
+   
+        
+  
