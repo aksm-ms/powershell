@@ -10,7 +10,7 @@ jobs:
         matrix:
           os: [windows-latest, ubuntu-latest]
     steps:
-      - name: 'Azure PS login'
+      - name: Azure PS login
         uses: aksm-ms/login@master
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
