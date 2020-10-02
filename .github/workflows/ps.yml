@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     paths: 
-      - '.github/workflows/main.yml'
+      - '.github/workflows/ps.yml'
 jobs:
   build:
     runs-on: ${{ matrix.os }}
