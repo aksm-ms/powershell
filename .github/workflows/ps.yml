@@ -1,48 +1,17 @@
 name: CI
 on:
   push:
-    paths:
-      - '.github/workflows/ps.yml'
-    
+    paths: 
+      - '.github/workflows/main.yml'
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
-    - name: 'PS Commands'
-      run: |
-         echo "Date"
-         Get-Date -Format "dddd MM/dd/yyyy HH:mm:ss:ms"
-         echo ""
-         
-         $sw = [Diagnostics.Stopwatch]::StartNew()
-         echo "printing PSModulePath"
-         $t = Measure-Command { echo $env:PSModulePath | Out-Default }
-         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
-         echo "" 
-         
-         #echo "setting module path in env var"
-         #$env:PSModulePath = "/usr/share/:" + $env.PSModulePath
-         #$t = Measure-Command { $env:PSModulePath = "C:\Modules\;" + $env.PSModulePath }
-         #echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
-         #echo ""
-         
-         echo "printing PSModulePath again"
-         $t = Measure-Command { echo $env:PSModulePath | Out-Default}
-         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
-         echo ""
-         
-         echo "running get module"
-         $t = Measure-Command { Get-Module -Name Az.Accounts -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1 | Out-Default }
-         echo "time taken - seconds: $($t.Seconds); milliseconds: $($t.Milliseconds)"
-         echo ""
-         
-         $sw.Stop()
-         echo "elapsed: $($sw.Elapsed)"
-         echo ""
-         
-         echo "Date"
-         Get-Date -Format "dddd MM/dd/yyyy HH:mm:ss:ms"
-         echo ""
-      shell:
-        pwsh
-
+      - name: 'Azure PS login'
+        uses: aksm-ms/login@master
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+          enable-AzPSSession: true
