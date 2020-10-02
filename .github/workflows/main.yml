@@ -15,12 +15,12 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
         
-#     - name: testing az cli
-#       run: |
-#         az account show
+    - name: testing az cli
+      run: |
+        az account show
         
-#     - name: testing az PS
-#       uses: aksm-ms/powershell-1@latest-module
-#       with:
-#         inlineScript: "Clear-AzContext -Scope Process; Clear-AzContext -Scope CurrentUser -Force -ErrorAction SilentlyContinue; Connect-AzAccount -ServicePrincipal -Tenant 72f988bf-86f1-41af-91ab-2d7cd011db47 -Credential (New-Object System.Management.Automation.PSCredential('586a5f0f-3720-42b2-82ef-d4479d53a0a5',(ConvertTo-SecureString /gk+ZqLp7E2PDrzuTvRg0Zju67ExLgAZ0wJisZaV6OM= -AsPlainText -Force))) -Environment AzureCloud;Set-AzContext -SubscriptionId c94bda7a-0577-4374-9c53-0e46a9fb0f70 -TenantId 72f988bf-86f1-41af-91ab-2d7cd011db47; Get-AzContext"
-#         azPSVersion: 'latest'
+    - name: testing az PS
+      uses: azure/powershell@v1
+      with:
+        inlineScript: "Get-AzContext"
+        azPSVersion: 'latest'
