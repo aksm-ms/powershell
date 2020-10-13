@@ -13,7 +13,7 @@ jobs:
       # uses: azure/login@aksm-ms/fix-az-logs
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-#         enable-AzPSSession: true
+        enable-AzPSSession: true
     
     - run: |
         az account show
