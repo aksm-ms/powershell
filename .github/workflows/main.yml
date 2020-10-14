@@ -5,78 +5,78 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: true
+#     continue-on-error: true
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2 
       
-#     - name: Azure login
-#       uses: Azure/login@v1
-#       with:
-#         creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Azure login
+      uses: Azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
         
-#     - name: 'Azure Mysql deploy'
+    - name: 'Azure Mysql deploy'
+      uses: Azure/mysql-action@v1
+      with:
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        sql-file: ${{github.workspace}}/run.sql
+
+#     - name: 'ADO.NET'
 #       uses: Azure/mysql-action@v1
 #       with:
 #         server-name: ak-mysql-db.mysql.database.azure.com
-#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
+#         connection-string: ${{secrets.MYSQL_CONN_STR_ADO_NET }}
 #         sql-file: ${{github.workspace}}/run.sql
+#       continue-on-error: true
 
-    - name: 'ADO.NET'
-      uses: Azure/mysql-action@v1
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_ADO_NET }}
-        sql-file: ${{github.workspace}}/run.sql
-      continue-on-error: true
-
-    - name: 'JDBC'
-      uses: Azure/mysql-action@v1
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
-        sql-file: ${{github.workspace}}/run.sql
-      continue-on-error: true
+#     - name: 'JDBC'
+#       uses: Azure/mysql-action@v1
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_JDBC_CONN_STRING}}
+#         sql-file: ${{github.workspace}}/run.sql
+#       continue-on-error: true
         
-    - name: 'Node js'
-      uses: Azure/mysql-action@v1
-      continue-on-error: true
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_NODEJS}}
-        sql-file: ${{github.workspace}}/run.sql
+#     - name: 'Node js'
+#       uses: Azure/mysql-action@v1
+#       continue-on-error: true
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STR_NODEJS}}
+#         sql-file: ${{github.workspace}}/run.sql
     
-    - name: 'PHP'
-      uses: Azure/mysql-action@v1
-      continue-on-error: true
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_PHP}}
-        sql-file: ${{github.workspace}}/run.sql
+#     - name: 'PHP'
+#       uses: Azure/mysql-action@v1
+#       continue-on-error: true
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STR_PHP}}
+#         sql-file: ${{github.workspace}}/run.sql
     
-    - name: 'Python'
-      uses: Azure/mysql-action@v1
-      continue-on-error: true
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_PYTHON}}
-        sql-file: ${{github.workspace}}/run.sql
+#     - name: 'Python'
+#       uses: Azure/mysql-action@v1
+#       continue-on-error: true
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STR_PYTHON}}
+#         sql-file: ${{github.workspace}}/run.sql
     
-    - name: 'Ruby'
-      uses: Azure/mysql-action@v1
-      continue-on-error: true
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_RUBY}}
-        sql-file: ${{github.workspace}}/run.sql
+#     - name: 'Ruby'
+#       uses: Azure/mysql-action@v1
+#       continue-on-error: true
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STR_RUBY}}
+#         sql-file: ${{github.workspace}}/run.sql
     
-    - name: 'Webapp'
-      uses: Azure/mysql-action@v1
-      continue-on-error: true
-      with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STR_WEBAPP}}
-        sql-file: ${{github.workspace}}/run.sql
+#     - name: 'Webapp'
+#       uses: Azure/mysql-action@v1
+#       continue-on-error: true
+#       with:
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STR_WEBAPP}}
+#         sql-file: ${{github.workspace}}/run.sql
     
    
         
