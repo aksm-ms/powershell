@@ -16,8 +16,8 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         
     - name: 'Azure Mysql deploy'
-#       uses: tspascoal/mysql@master
-      uses: Azure/mysql-action@v1
+      uses: tspascoal/mysql@master
+#       uses: Azure/mysql-action@v1
       with:
         server-name: ak-mysql-db.mysql.database.azure.com
         connection-string: ${{secrets.MYSQL_CONN_STRING}}
