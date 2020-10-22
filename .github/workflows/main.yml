@@ -10,7 +10,7 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2 
       
-    - name: Azure login
+    - name: 'Azure login'
       uses: aksm-ms/login@ganeshrockz/no-subscription-login
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
