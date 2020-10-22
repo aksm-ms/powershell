@@ -13,14 +13,15 @@ jobs:
     - name: Azure login
       uses: Azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
         
     - name: 'Azure Mysql deploy'
-#       uses: tspascoal/mysql@master
       uses: Azure/mysql-action@v1
       with:
-        server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        server-name: ak-test-mysql-mgmt.mysql.database.azure.com
+        connection-string: ${{ secrets.MYSQL_CONN_STRING_VS }}
+#         server-name: ak-mysql-db.mysql.database.azure.com
+#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
 
 #     - name: 'ADO.NET'
