@@ -14,7 +14,8 @@ jobs:
       uses: azure/login@v1
 #       uses: aksm-ms/login@ganeshrockz/no-subscription-login
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+#         creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
         
     - name: 'Azure Mysql deploy'
       uses: Azure/mysql-action@users/aksm/refactor-params
