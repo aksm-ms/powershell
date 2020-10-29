@@ -21,10 +21,10 @@ jobs:
       uses: Azure/mysql-action@users/aksm/refactor-params
 #       uses: Azure/mysql-action@v1
       with:
-        server-name: ak-test-mysql-mgmt.mysql.database.azure.com
-        connection-string: ${{ secrets.MYSQL_CONN_STRING_VS }}
-#         server-name: ak-mysql-db.mysql.database.azure.com
-#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
+#         server-name: ak-test-mysql-mgmt.mysql.database.azure.com
+#         connection-string: ${{ secrets.MYSQL_CONN_STRING_VS }}
+        server-name: ak-mysql-db.mysql.database.azure.com
+        connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
 
 #     - name: 'ADO.NET'
