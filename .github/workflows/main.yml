@@ -24,7 +24,9 @@ jobs:
 #         server-name: ak-test-mysql-mgmt.mysql.database.azure.com
 #         connection-string: ${{ secrets.MYSQL_CONN_STRING_VS }}
         server-name: ak-mysql-db.mysql.database.azure.com
-        connection-string: ${{secrets.MYSQL_CONN_STRING}}
+        username: aksm@ak-mysql-db
+        password: Mads.handyvs!2
+#         connection-string: ${{secrets.MYSQL_CONN_STRING}}
         sql-file: ${{github.workspace}}/run.sql
 
 #     - name: 'ADO.NET'
