@@ -11,12 +11,14 @@ jobs:
       uses: actions/checkout@v2 
       
     - name: 'Azure login'
-      uses: aksm-ms/login@ganeshrockz/no-subscription-login
+      uses: azure/login@v1
+#       uses: aksm-ms/login@ganeshrockz/no-subscription-login
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
         
     - name: 'Azure Mysql deploy'
-      uses: Azure/mysql-action@v1
+      uses: Azure/mysql-action@users/aksm/refactor-params
+#       uses: Azure/mysql-action@v1
       with:
         server-name: ak-test-mysql-mgmt.mysql.database.azure.com
         connection-string: ${{ secrets.MYSQL_CONN_STRING_VS }}
