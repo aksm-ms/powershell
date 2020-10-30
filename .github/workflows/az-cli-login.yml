@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login v1
-      uses: Azure/login@v1
-      # uses: azure/login@aksm-ms/fix-az-logs
+#       uses: Azure/login@v1
+      uses: azure/login@ganeshrockz/no-subscription-login
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
+#         creds: ${{secrets.AZURE_CREDENTIALS}}
 #         enable-AzPSSession: true
     
     - run: |
