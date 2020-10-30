@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: az login v1
 #       uses: Azure/login@v1
-      uses: azure/login@ganeshrockz/no-subscription-login
+      uses: azure/login@ganeshrockz/test-branch
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
 #         creds: ${{secrets.AZURE_CREDENTIALS}}
