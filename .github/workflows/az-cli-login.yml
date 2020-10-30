@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'az login v1'
+    - name: az login v1
       uses: Azure/login@v1
       # uses: azure/login@aksm-ms/fix-az-logs
       with:
