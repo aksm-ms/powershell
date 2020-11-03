@@ -29,7 +29,7 @@ jobs:
     - name: az PS login with subscription
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
+        creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
         
     - uses: azure/powershell@v1
