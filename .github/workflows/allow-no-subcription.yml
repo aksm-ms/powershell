@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'az cli login with subscription'
-      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     
@@ -19,7 +19,7 @@ jobs:
         
         
     - name: az cli login without subscription
-      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
         allow-no-subscriptions: true
@@ -29,7 +29,7 @@ jobs:
         az logout
         
     - name: az PS login with subscription
-      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
@@ -40,7 +40,7 @@ jobs:
         azPSVersion: "latest"
         
     - name: az PS login without subscription
-      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
         enable-AzPSSession: true
