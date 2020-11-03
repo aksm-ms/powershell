@@ -15,6 +15,7 @@ jobs:
     
     - run: |
         az account show
+        az logout
         
         
     - name: az cli login without subscription
@@ -25,6 +26,7 @@ jobs:
         
     - run: |
         az account show
+        az logout
         
     - name: az PS login with subscription
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
@@ -34,7 +36,7 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: Get-AzContext
+        inlineScript: Get-AzContext; Disconnect-AzAccount
         
     - name: az PS login without subscription
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
@@ -45,7 +47,7 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: Get-AzContext
+        inlineScript: Get-AzContext; Disconnect-AzAccount
       
     
          
