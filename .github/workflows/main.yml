@@ -20,9 +20,12 @@ jobs:
 #         bash
     - uses: azure/login@users/aksm-ms/allow-no-subscription-releases
       env:
-        CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+        CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
+#         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
+        allow-no-subscriptions: true
     
     - run: |
         az account show
