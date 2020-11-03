@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login v1
-      uses: Azure/login@users/aksm/az-version
+      uses: Azure/login@users/aksm/az-version-2
 #       uses: aksm-ms/login@master
 #       uses: Azure/login@v1
       with:
