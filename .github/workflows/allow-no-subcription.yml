@@ -1,0 +1,51 @@
+name: CI
+on:
+  push:
+    paths:
+      - '.github/workflows/main.yml'
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: az cli login with subscription
+      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    
+    - run: |
+        az account show
+        
+        
+    - name: az cli login without subscription
+      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
+        allow-no-subscriptions: true
+        
+    - run: |
+        az account show
+        
+    - name: az PS login with subscription
+      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
+        enable-AzPSSession: true
+        
+    - uses: azure/powershell@v1
+      with:
+        inlineScript: Get-AzContext
+        
+    - name: az PS login without subscription
+      uses: azure/login@users/aksm-ms/allow-no-subscription-releases
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_MGMT}}
+        enable-AzPSSession: true
+        allow-no-subscriptions: true
+        
+    - uses: azure/powershell@v1
+      with:
+        inlineScript: Get-AzContext
+      
+    
+         
