@@ -36,8 +36,8 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: |
-          Get-AzContext
+        inlineScript: "Get-AzContext"
+        azPSVersion: "latest"
         
     - name: az PS login without subscription
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
@@ -48,8 +48,8 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: | 
-          Get-AzContext
+        inlineScript: "Get-AzContext"
+        azPSVersion: "latest"
       
     
          
