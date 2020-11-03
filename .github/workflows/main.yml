@@ -17,7 +17,7 @@ jobs:
 #         echo $bar
 #       shell:
 #         bash
-    - uses: azure/login@v1
+    - uses: azure/login@users/aksm-ms/allow-no-subscription-releases
       env:
         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
       with:
