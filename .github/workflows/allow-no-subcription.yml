@@ -36,7 +36,7 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: Get-AzContext; Disconnect-AzAccount
+        inlineScript: Get-AzContext
         
     - name: az PS login without subscription
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
@@ -47,7 +47,7 @@ jobs:
         
     - uses: azure/powershell@v1
       with:
-        inlineScript: Get-AzContext; Disconnect-AzAccount
+        inlineScript: Get-AzContext
       
     
          
