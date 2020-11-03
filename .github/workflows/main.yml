@@ -6,7 +6,8 @@ on:
     
 jobs:
   build-and-deploy:
-    runs-on: AzureCloud.eastus2
+#     runs-on: AzureCloud.eastus2
+    runs-on: ubuntu-latest
     steps:
 #     - uses: azure/login@v1.1
 #     - name: test env
