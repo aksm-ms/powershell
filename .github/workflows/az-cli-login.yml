@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login v1
-      uses: aksm-ms/login@master
+      uses: Azure/login@users/aksm/az-version
+#       uses: aksm-ms/login@master
 #       uses: Azure/login@v1
-#       uses: azure/login@ganeshrockz/test-branch
       with:
 #         creds: ${{ secrets.AZURE_CREDENTIALS_MGMT }}
         creds: ${{secrets.AZURE_CREDENTIALS}}
