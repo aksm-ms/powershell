@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     paths:
-      - '.github/workflows/main.yml'
+      - '.github/workflows/allow-no-subcription.yml'
     
 jobs:
   build-and-deploy:
