@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: az cli login with subscription
+    - name: 'az cli login with subscription'
       uses: azure/login@users/aksm-ms/allow-no-subscription-releases
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
