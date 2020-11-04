@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'az login az cli symbols'
-      uses: aksm-ms/login@e884d4579ed69ae2b76dd3ecd4baa7b92ace232a
+      uses: aksm-ms/login@6a27aa555e0e01c428b69027c0ed6701a36f0e08
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     
