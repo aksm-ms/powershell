@@ -18,7 +18,7 @@ jobs:
 #     - run: |
 #         az account show
         
-    - uses: azure/powershell@releases/v1
+    - uses: azure/powershell@users/aksm-ms/core-lodash-update
       with:
         inlineScript: "Get-AzContext"
         azPSVersion: "latest"
