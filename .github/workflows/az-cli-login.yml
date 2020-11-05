@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: az login az cli symbols
+    - name: 'az login az cli symbols'
       uses: azure/login@v1
 #       uses: aksm-ms/login@az-cli-symbols
       with:
