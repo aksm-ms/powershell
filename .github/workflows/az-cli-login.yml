@@ -9,16 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login az cli symbols
-      uses: aksm-ms/login@az-cli-symbols
+      uses: azure/login@v1
+#       uses: aksm-ms/login@az-cli-symbols
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true
     
-    - run: |
-        az account show
+#     - run: |
+#         az account show
         
-#     - name: Run Azure PowerShell script
-#       uses: azure/powershell@v1
-#       with:
-#         azPSVersion: '3.1.0'
-#         inlineScript: |
-#           Get-AzVM -ResourceGroupName "akshaya-tests"
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@releases/v1
+      with:
+        azPSVersion: 'latest'
+        inlineScript: |
+          Get-AzVM -ResourceGroupName "akshaya-tests"
