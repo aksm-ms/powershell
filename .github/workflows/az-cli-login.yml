@@ -18,9 +18,7 @@ jobs:
 #     - run: |
 #         az account show
         
-    - name: Run Azure PowerShell script
-      uses: azure/powershell@releases/v1
+    - uses: azure/powershell@releases/v1
       with:
-        azPSVersion: 'latest'
-        inlineScript: |
-          Get-AzVM -ResourceGroupName "akshaya-tests"
+        inlineScript: "Get-AzContext"
+        azPSVersion: "latest"
