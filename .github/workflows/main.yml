@@ -17,9 +17,18 @@ jobs:
     - name: checkout repo
       uses: actions/checkout@v2.3.1
       
+    - uses: azure/login@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+      
+    - name: Azure App Service Settings
+      uses: Azure/appservice-settings@v1
+      with:
+        app-name: ak-test-linux-container
+        app-settings-json: '[{"name":"WEBSITE_WEBDEPLOY_USE_SCM","value":"true","slotSetting":false}]'
+        
     - name: Azure WebApp deploy - publish profile with container
       uses: azure/webapps-deploy@v2
-#       uses: aksm-ms/webapps-deploy@appruntime-fix
       with:
         app-name: ak-test-linux-container
         publish-profile: ${{secrets.PUBLISH_PROFILE_CONTAINER}}
