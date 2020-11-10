@@ -18,7 +18,7 @@ jobs:
 #     - run: |
 #         az account show
         
-    - uses: azure/powershell@users/adding-actionname
+    - uses: azure/powershell@adding-actionname
       with:
         inlineScript: "Get-AzContext"
         azPSVersion: "latest"
