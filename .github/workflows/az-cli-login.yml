@@ -12,7 +12,7 @@ jobs:
       uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true
+#         enable-AzPSSession: true
     
     - run: |
         az account show
