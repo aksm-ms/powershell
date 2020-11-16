@@ -4,6 +4,9 @@ on:
     paths:
       - '.github/workflows/az-cli-login.yml'
     
+env:
+  clientId: '586a5f0f-3720-42b2-82ef-d4479d53a0a5'
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
