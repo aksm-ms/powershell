@@ -9,16 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login az cli symbols
-      uses: azure/login@v1
-#       uses: aksm-ms/login@az-cli-symbols
+      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true
     
-#     - run: |
-#         az account show
+    - run: |
+        az account show
         
-    - uses: azure/powershell@adding-actionname
-      with:
-        inlineScript: "Get-AzContext"
-        azPSVersion: "latest"
+#     - uses: azure/powershell@adding-actionname
+#       with:
+#         inlineScript: "Get-AzContext"
+#         azPSVersion: "latest"
