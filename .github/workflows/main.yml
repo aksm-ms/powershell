@@ -27,7 +27,7 @@ jobs:
         app-name: ak-test-linux-container
         app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}]'
         
-    - name: Azure WebApp deploy - publish profile with container
+    - name: webapps-deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ak-test-linux-container
@@ -36,5 +36,8 @@ jobs:
 #         images: appsvc/python:latest
         images: ranjithr/mariohtml5:latest
         
+    - name: get output
+      run: |
+        echo steps.webapps-deploy.outputs.webapp-url
         
     
