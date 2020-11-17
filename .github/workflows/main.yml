@@ -27,7 +27,7 @@ jobs:
 #         app-name: ak-test-linux-container
 #         app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}]'
         
-    - name: webapps-deploy
+    - id: webapps-deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ak-test-linux-container
