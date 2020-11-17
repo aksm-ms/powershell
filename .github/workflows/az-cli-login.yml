@@ -9,7 +9,10 @@ on:
   
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest]
     steps:
     - name: az login az cli symbols
       uses: azure/login@v1
