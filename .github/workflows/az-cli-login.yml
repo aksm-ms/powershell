@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: az login az cli symbols
-      uses: azure/login@users/aksm-ms/az-cli-version-debug-log
+      uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 #         enable-AzPSSession: true
