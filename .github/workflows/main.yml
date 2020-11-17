@@ -21,11 +21,11 @@ jobs:
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
       
-#     - name: 'Azure App Service Settings'
-#       uses: Azure/appservice-settings@v1
-#       with:
-#         app-name: ak-test-linux-container
-#         app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}]'
+    - name: 'Azure App Service Settings'
+      uses: Azure/appservice-settings@v1
+      with:
+        app-name: ak-test-linux-container
+        app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}]'
         
     - id: webapps-deploy
       uses: azure/webapps-deploy@v2
