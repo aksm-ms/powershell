@@ -44,7 +44,7 @@ jobs:
         echo "=========================="
         
     - name: hello-world-action
-      uses: aksm-ms/hello-world-javascript-action@v1.1
+      uses: aksm-ms/hello-world-javascript-action@main
       with:
         who-to-greet: "akshaya"
         
