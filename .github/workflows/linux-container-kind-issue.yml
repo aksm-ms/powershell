@@ -1,6 +1,8 @@
 name: CI
 on:
-  [workflow_dispatch]
+  push:
+    paths:
+      - '.github/workflows/linux-container-kind-issue.yml'
   
 jobs:
   build:
