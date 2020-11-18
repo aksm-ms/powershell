@@ -19,9 +19,9 @@ jobs:
     - name: checkout repo
       uses: actions/checkout@v2.3.1
       
-    - uses: azure/login@v1
-      with:
-        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+#     - uses: azure/login@v1
+#       with:
+#         creds: '${{ secrets.AZURE_CREDENTIALS }}'
       
     - name: 'webapps-deploy'
       uses: azure/webapps-deploy@users/aksm-ms/linux-container-app-kind
