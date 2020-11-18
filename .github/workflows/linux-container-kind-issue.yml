@@ -23,7 +23,7 @@ jobs:
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
       
-    - name: webapps-deploy
+    - name: 'webapps-deploy'
       uses: azure/webapps-deploy@users/aksm-ms/linux-container-app-kind
       with:
         app-name: ak-test-linux-container
