@@ -40,12 +40,13 @@ jobs:
     - name: get output
       run: |
         echo "=========================="
-        echo ${{ steps.webapps-deploy.outputs.webapp-url }}
+        echo ${{ steps.webapps-deploy.outputs.webapp-url }} >> ${{github.workspace}}/akk
+        cat ${{github.workspace}}/akk
         echo "=========================="
         
-    - name: hello-world-action
-      uses: aksm-ms/hello-world-javascript-action@main
-      with:
-        who-to-greet: "akshaya"
+#     - name: hello-world-action
+#       uses: aksm-ms/hello-world-javascript-action@main
+#       with:
+#         who-to-greet: "akshaya"
         
     
