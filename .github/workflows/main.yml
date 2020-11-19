@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: 'Build job'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
     - name: 'login to docker'
@@ -40,8 +40,8 @@ jobs:
     - name: get output
       run: |
         echo "=========================="
-        echo ${{ steps.webapps-deploy.outputs.webapp-url }} >> ${{github.workspace}}/akk
-        cat ${{github.workspace}}/akk
+        echo ${{ steps.webapps-deploy.outputs.webapp-url }} >> /Users/akshaya-mac/akk/output
+        cat /Users/akshaya-mac/akk/output
         echo "=========================="
         
 #     - name: hello-world-action
