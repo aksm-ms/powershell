@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      
+    - id: 'one'
+      run: |
+        echo "first step"
         
     - name: hello-world-action
       uses: aksm-ms/hello-world-javascript-action@main
