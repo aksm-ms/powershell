@@ -23,7 +23,7 @@ jobs:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
       
     - name: 'Azure App Service Settings'
-      uses: Azure/appservice-settings@v1
+      uses: Azure/appservice-settings@users/aksm-ms/fix-masked-settings
       with:
         app-name: ak-test-linux-container
         app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}]'
@@ -37,16 +37,16 @@ jobs:
 #         images: appsvc/python:latest
         images: ranjithr/mariohtml5:latest
         
-    - name: get output
-      run: |
-        echo "=========================="
-        echo ${{ steps.webapps-deploy.outputs.webapp-url }} >> /Users/akshaya-mac/akk/output
-        cat /Users/akshaya-mac/akk/output
-        echo "=========================="
+#     - name: get output
+#       run: |
+#         echo "=========================="
+#         echo ${{ steps.webapps-deploy.outputs.webapp-url }} >> /Users/akshaya-mac/akk/output
+#         cat /Users/akshaya-mac/akk/output
+#         echo "=========================="
         
-    - name: hello-world-action
-      uses: aksm-ms/hello-world-javascript-action@main
-      with:
-        who-to-greet: ${{ steps.webapps-deploy.outputs.webapp-url }}
+#     - name: hello-world-action
+#       uses: aksm-ms/hello-world-javascript-action@main
+#       with:
+#         who-to-greet: ${{ steps.webapps-deploy.outputs.webapp-url }}
         
     
