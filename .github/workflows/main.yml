@@ -26,7 +26,7 @@ jobs:
       uses: Azure/appservice-settings@users/aksm-ms/fix-masked-settings
       with:
         app-name: ak-test-linux-container
-        app-settings-json: '[{"name":"1","value":"ak-test-linux-container","slotSetting":false}, {"name":"2","value":"ak-test-linux-container","slotSetting":false}, {"name":"3","value":"ak-test-linux-container","slotSetting":false}, {"secret":"false"}]'
+        app-settings-json: '[{"name":"1","value":"ak-test-linux-container","slotSetting":false}, {"name":"2","value":"ak-test-linux-container","slotSetting":false}, {"name":"3","value":"ak-test-linux-container","slotSetting":false}, {"secret":false}]'
 #         app-settings-json: '[{"name":"ABCD","value":"ak-test-linux-container","slotSetting":false}],"secret": false'
         
     - id: webapps-deploy
