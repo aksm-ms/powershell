@@ -12,13 +12,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-          os: [windows-latest, ubuntu-latest]
+          os: [ubuntu-latest]
     steps:
     - name: az login az cli symbols
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true
+#         enable-AzPSSession: true
     
     - run: |
         az account show
