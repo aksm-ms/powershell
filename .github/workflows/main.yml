@@ -24,8 +24,8 @@ jobs:
       
     - name: 'Azure App Service Settings'
       uses: Azure/appservice-settings@users/aksm-ms/fix-masked-settings
-      env:
-        secret: false
+#       env:
+#         secret: false
       with:
         app-name: ak-test-linux-container
 #         mask-inputs: false
