@@ -26,7 +26,7 @@ jobs:
       uses: Azure/appservice-settings@users/aksm-ms/fix-masked-settings
       with:
         app-name: ak-test-linux-container
-        mask-inputs: FalSe
+        mask-inputs: FALSE
         app-settings-json: '[{"name":"1","value":"ak-test-linux-container","slotSetting":false},{"name":"3","value":"ak-test-linux-container","slotSetting":false}, {"secret": false }]'
         connection-strings-json: '[{"name":"1","value":"ak-test-linux-container","slotSetting":false},{"name":"3","value":"ak-test-linux-container","slotSetting":false}]'
    
