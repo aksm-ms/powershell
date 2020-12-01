@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@master
         with:
          repository: Azure-Samples/dotnet-sample
-         token: ${{ secrets.GITSSHKEY }} # we will set
+         token: ${{ secrets.GITSSHKEY }} 
          ref: master
         
       - name: 'Az CLI login'
@@ -76,7 +76,7 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: AmrutaKawade/ContainerFunctionApp
-          token: ${{ secrets.GITSSHKEY }} #we will set ??
+          token: ${{ secrets.GITSSHKEY }} 
           ref: master
 
       - name: 'Login via Azure CLI'
