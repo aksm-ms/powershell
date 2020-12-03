@@ -21,6 +21,9 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        
+    - run:
+        az webapp list
       
     - name: 'Azure App Service Settings'
       uses: aksm-ms/appservice-settings@releases/v1
