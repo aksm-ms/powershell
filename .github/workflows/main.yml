@@ -1,5 +1,8 @@
 name: Run Azure Login Integration Tests
-on: [workflow_dispatch]
+on: 
+   push:
+             branches: arm-deploy-test
+                    
 
           # set this to the node version to use
 
