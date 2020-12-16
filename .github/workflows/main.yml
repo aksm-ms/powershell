@@ -1,17 +1,19 @@
 name: Run Azure Login Integration Tests
 on: 
    push:
-             branches: arm-deploy-test
+      branches: arm-deploy-test
                     
-
-          # set this to the node version to use
-
 jobs: 
-  sovereign-cloud-test:
+  arm-template-deploy:
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
+     
+      - name: azure login
+        uses: Azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
       
       - name: Deploy Azure Resource Manager (ARM) Template
         uses: Azure/arm-deploy@v1
