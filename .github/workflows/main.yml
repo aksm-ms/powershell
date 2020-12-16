@@ -21,6 +21,7 @@ jobs:
           scope: "subscription"
           subscriptionId: "c94bda7a-0577-4374-9c53-0e46a9fb0f70"
           template: ./template.json
+          region: "East US"
       
 
      
