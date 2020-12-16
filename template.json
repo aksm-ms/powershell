@@ -1,0 +1,139 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "extensions_enablevmaccess_username": {
+            "type": "SecureString"
+        },
+        "extensions_enablevmaccess_password": {
+            "type": "SecureString"
+        },
+        "extensions_enablevmaccess_ssh_key": {
+            "type": "SecureString"
+        },
+        "extensions_enablevmaccess_reset_ssh": {
+            "type": "SecureString"
+        },
+        "extensions_enablevmaccess_remove_user": {
+            "type": "SecureString"
+        },
+        "extensions_enablevmaccess_expiration": {
+            "type": "SecureString"
+        },
+        "virtualMachines_ak_test_login_name": {
+            "defaultValue": "ak-test-login",
+            "type": "String"
+        },
+        "disks_ak_test_login_disk1_0045aa998b2a4e9ea3e7d1bd8e2684bf_externalid": {
+            "defaultValue": "/subscriptions/c94bda7a-0577-4374-9c53-0e46a9fb0f70/resourceGroups/AKSHAYA-TESTS/providers/Microsoft.Compute/disks/ak-test-login_disk1_0045aa998b2a4e9ea3e7d1bd8e2684bf",
+            "type": "String"
+        },
+        "networkInterfaces_ak_test_login819_externalid": {
+            "defaultValue": "/subscriptions/c94bda7a-0577-4374-9c53-0e46a9fb0f70/resourceGroups/akshaya-tests/providers/Microsoft.Network/networkInterfaces/ak-test-login819",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2019-07-01",
+            "name": "[parameters('virtualMachines_ak_test_login_name')]",
+            "location": "eastus",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_ak_test_login_name'), '_disk1_0045aa998b2a4e9ea3e7d1bd8e2684bf')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('disks_ak_test_login_disk1_0045aa998b2a4e9ea3e7d1bd8e2684bf_externalid')]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_ak_test_login_name')]",
+                    "adminUsername": "AzureUser",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/AzureUser/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzlO7mvbLQec0lCuDig5eGnaVi\r\nFH8isnJI2FTkHdkvRHUkr0ojk5/VnqUKuxIfF+u51h3aifTjgEM7KU0Albnwkc8I\r\n4hthgCn2AC+5+MWY4wR7i1pL6hfGXy2W843tnSGV6kCbmSbg90HLdlc59l+N0MFq\r\nE5g/P3fjneVssZQv2+8Fk20eZqzvL+WuExm+0zb7kGPD2ehe7RQlXjyLeqmqQroS\r\nuHpeJTQ+UM+BRDL4lHXJKjRs57kJQxmvB4rq6jS12a34pTz1y/ddsTL/u/ejR4OB\r\n0Eysls3njMbdNi9VguWA8Bu6+0Kt1CSlgTd/k7gnGFlXmG30iGyYeJR8jJ2dSr6n\r\nYYdEyywF+gEYbmU4hD4I1yLKbRexO86PAHFBhWbHrVSReh+gU2QeMS+4ZqMEhBOs\r\ne5lFJmz90KRN75wTUONa5kFhV6W4cabkQh3/5N62JiWXLMEf21NeED0yHz9cKKKK\r\nzpPRuwn+zUmGQvva0b3g9oZ2iFJGDsjvfKmvDW8= generated-by-azure\r\n"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_ak_test_login819_externalid')]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "https://akshayatestsdiag.blob.core.windows.net/"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2019-07-01",
+            "name": "[concat(parameters('virtualMachines_ak_test_login_name'), '/AzureNetworkWatcherExtension')]",
+            "location": "eastus",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_ak_test_login_name'))]"
+            ],
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.NetworkWatcher",
+                "type": "NetworkWatcherAgentLinux",
+                "typeHandlerVersion": "1.4"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2019-07-01",
+            "name": "[concat(parameters('virtualMachines_ak_test_login_name'), '/enablevmaccess')]",
+            "location": "eastus",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_ak_test_login_name'))]"
+            ],
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.OSTCExtensions",
+                "type": "VMAccessForLinux",
+                "typeHandlerVersion": "1.4",
+                "settings": {},
+                "protectedSettings": {
+                    "username": "[parameters('extensions_enablevmaccess_username')]",
+                    "password": "[parameters('extensions_enablevmaccess_password')]",
+                    "ssh_key": "[parameters('extensions_enablevmaccess_ssh_key')]",
+                    "reset_ssh": "[parameters('extensions_enablevmaccess_reset_ssh')]",
+                    "remove_user": "[parameters('extensions_enablevmaccess_remove_user')]",
+                    "expiration": "[parameters('extensions_enablevmaccess_expiration')]"
+                }
+            }
+        }
+    ]
+}
