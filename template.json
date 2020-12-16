@@ -33,7 +33,9 @@
             "type": "String"
         }
     },
-    "variables": {},
+    "variables": {
+        "foo": "bar"
+    },
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines",
