@@ -2,8 +2,7 @@ name: Run Azure PostgresSQL Action Integration Tests
 
 on:
   push:
-    paths:
-      - '.github/workflows/main.yml'
+    branches: test-postgresql
 
 jobs:
   postgresql-action-test:
