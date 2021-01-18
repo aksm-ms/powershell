@@ -1,0 +1,26 @@
+name: Testing azure mysql deploy action
+on:
+  push:
+    branches: [ test-azure-mysql-action ]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest,macos-latest]
+    steps:
+    - name: Checkout code.
+      uses: actions/checkout@v2 
+      
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: 'Azure Mysql deploy'
+      uses: Azure/mysql@v1
+      with:
+        server-name: ak-flexible-mysql.mysql.database.azure.com
+        username: aksm@ak-flexible-mysql
+        password: Mads.handyvs!2
+        sql-file: ${{github.workspace}}/run.sql
