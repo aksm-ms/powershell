@@ -1,7 +1,7 @@
 name: Testing azure mysql deploy action
 on:
   push:
-    branches: [ test-azure-mysql-action ]
+    paths: '.github/workflows/flexible-server.yml'
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -23,4 +23,4 @@ jobs:
         server-name: ak-flexible-mysql.mysql.database.azure.com
         username: aksm@ak-flexible-mysql
         password: Mads.handyvs!2
-        sql-file: ${{github.workspace}}/run.sql
+        sql-file: ${{github.workspace}}/run-flexible.sql
