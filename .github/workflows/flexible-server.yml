@@ -23,5 +23,5 @@ jobs:
       with:
         server-name: ak-flexible-mysql.mysql.database.azure.com
         username: aksm@ak-flexible-mysql
-        password: Mads.handyvs!2
+        password: ${{ secrets.MYSQL_FLEXIBLE_PASSWORD }}
         sql-file: ${{github.workspace}}/run-flexible.sql
