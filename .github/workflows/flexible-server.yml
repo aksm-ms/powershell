@@ -21,7 +21,7 @@ jobs:
     - name: 'Azure Mysql deploy'
       uses: Azure/mysql@v1
       with:
-        server-name: ak-flexible-mysql.mysql.database.azure.com
-        username: aksm@ak-flexible-mysql
+        server-name: ak-flexible-mysql-2.mysql.database.azure.com
+        username: aksm
         password: ${{ secrets.MYSQL_FLEXIBLE_PASSWORD }}
         sql-file: ${{github.workspace}}/run-flexible.sql
